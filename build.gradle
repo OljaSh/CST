@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'ru.vyarus.quality' version '3.3.0'
+}
+
+group 'io.github.sskorol'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+apply from: rootProject.file('gradle/install-git-hooks.gradle')
+
+repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion '4.10'
+}
+
+quality {
+    strict = project.hasProperty("isStrict") ? project.property("isStrict").toBoolean() : (System.getenv("IS_STRICT") != null ? System.getenv("IS_STRICT").toBoolean() : true)
+}
