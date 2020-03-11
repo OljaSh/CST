@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CST.iml" filepath="$PROJECT_DIR$/.idea/CST.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.kn.il.cstnext.iml" filepath="$PROJECT_DIR$/.idea/modules/com.kn.il.cstnext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.kn.il.cstnext.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.kn.il.cstnext.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.kn.il.cstnext.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.kn.il.cstnext.test.iml" />
+    </modules>
+  </component>
+</project>
