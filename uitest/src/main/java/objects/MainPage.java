@@ -14,20 +14,21 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class MainPage {
 
-    //public static final By buttonLogout = By.linkText("Logout");
     private SelenideElement elementHeader = $(byClassName("right"));
 
-    private  SelenideElement buttonLogout = $(byText("Logout"));
+    public SelenideElement buttonLogout = $(byText("Logout"));
 
-    private  SelenideElement filter = $(byAttribute("id", "filter"));
-    private  SelenideElement content = $(byClassName("content"));
+    private SelenideElement filter = $(byAttribute("id", "filter"));
 
-    private  SelenideElement tabArchive = $(byLinkText("Archive"));
-    private  SelenideElement tabCreateRequest = $(byLinkText("Create request"));
+    private SelenideElement content = $(byClassName("content"));
+
+    private SelenideElement tabArchive = $(byLinkText("Archive"));
+
+    private SelenideElement tabCreateRequest = $(byLinkText("Create request"));
 
 
     @Step("Switch customer")
-    public MainPage switchCustomer(String customerCode){
+    public MainPage switchCustomer(String customerCode) {
         open("/" + customerCode + "/operator");
         return this;
     }
@@ -44,7 +45,7 @@ public class MainPage {
     }
 
     @Step("Click on Create Request")
-    public CreatePreRequestPage clickOnCreateRequest(){
+    public CreatePreRequestPage clickOnCreateRequest() {
         $(tabCreateRequest).click();
         return page(CreatePreRequestPage.class);
     }
@@ -55,6 +56,9 @@ public class MainPage {
         return page(ArchiveList.class);
     }*/
 
-
-
+    @Step("Verification: LogOut option is displayed")
+    public MainPage isButtonLogOutAvailable() {
+        $(buttonLogout).shouldBe(Condition.visible);
+        return this;
+    }
 }

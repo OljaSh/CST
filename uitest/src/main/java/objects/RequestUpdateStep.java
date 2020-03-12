@@ -29,9 +29,13 @@ public class RequestUpdateStep {
     private SelenideElement selectBoxInvolvedParties = $(byId("involvedParties"));
 
     private SelenideElement selectBoxHReasonCodesL1 = $(byId("reasonCodeL1"));
+
     private SelenideElement selectBoxHReasonCodesL2 = $(byId("reasonCodeL2"));
+
     private SelenideElement selectBoxHReasonCodesL3 = $(byId("reasonCodeL3"));
+
     private SelenideElement selectBoxHRootCauseParty = $(byId("rootCauseParty"));
+
     private SelenideElement selectBoxHRootCauseCategory = $(byId("rootCauseCategory"));
 
 
@@ -94,7 +98,7 @@ public class RequestUpdateStep {
 
 
     @Step("Slect Reason Code Level  1 {0}")
-    public RequestUpdateStep selectReasonCodeLevelOne(String reasonCodeLevelOne){
+    public RequestUpdateStep selectReasonCodeLevelOne(String reasonCodeLevelOne) {
         $(selectBoxHReasonCodesL1).click();
         $(withText(reasonCodeLevelOne)).click();
         return this;
@@ -115,24 +119,24 @@ public class RequestUpdateStep {
     }
 
     @Step("Slect Root Cause Party {0}")
-    public RequestUpdateStep selectRootCauseParty(String rootCauseParty){
+    public RequestUpdateStep selectRootCauseParty(String rootCauseParty) {
         $(selectBoxHRootCauseParty).click();
         $(withText(rootCauseParty)).click();
         return this;
     }
 
     @Step("Slect Root Cause Category {0}")
-    public RequestUpdateStep selectRootCauseCategory(String rootCauseCategory){
+    public RequestUpdateStep selectRootCauseCategory(String rootCauseCategory) {
         $(selectBoxHRootCauseCategory).click();
         $(withText(rootCauseCategory)).click();
         return this;
     }
 
-    @Step("Click on save and Proceed")
+/*    @Step("Click on save and Proceed")
     public SendToInvolvedPartyStep clickOneSaveAndProceedButton(){
         $(buttonSaveAndProceed).click();
         return  page(SendToInvolvedPartyStep.class);
-    }
+    }*/
 
     @Step("Get Step Name")
     public String getStepName() {
@@ -140,10 +144,15 @@ public class RequestUpdateStep {
     }
 
 
-
-    public void isButtonSaveAndProceedDisplayed(){
-        $(buttonSaveAndProceed).shouldBe(Condition.visible);
+    @Step("Verify that step name is {0}")
+    public SelenideElement checkThatStepNameIs(String stepNameValue) {
+        return $(stepName).shouldHave(Condition.text(stepNameValue));
     }
+
+
+   /* public void isButtonSaveAndProceedDisplayed() {
+        $(buttonSaveAndProceed).shouldBe(Condition.visible);
+    }*/
 
 }
 
