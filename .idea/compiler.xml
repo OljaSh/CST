@@ -4,6 +4,10 @@
     <bytecodeTargetLevel>
       <module name="com.kn.il.cstnext.main" target="1.8" />
       <module name="com.kn.il.cstnext.test" target="1.8" />
+      <module name="CST.uitest.com.kn.il.cstnext.main" target="1.8" />
+      <module name="CST.uitest.com.kn.il.cstnext.test" target="1.8" />
+      <module name="uitest.com.kn.il.cstnext.main" target="1.8" />
+      <module name="uitest.com.kn.il.cstnext.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

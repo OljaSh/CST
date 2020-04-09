@@ -26,7 +26,6 @@ public class MainPage {
 
     private SelenideElement tabCreateRequest = $(byLinkText("Create request"));
 
-
     @Step("Switch customer")
     public MainPage switchCustomer(String customerCode) {
         open("/" + customerCode + "/operator");
@@ -49,12 +48,6 @@ public class MainPage {
         $(tabCreateRequest).click();
         return page(CreatePreRequestPage.class);
     }
-/*
-    @Step("Click on Archive tab")
-    public ArchiveList clickOnArchiveTab(){
-        $(tabArchive).click();
-        return page(ArchiveList.class);
-    }*/
 
     @Step("Verification: LogOut option is displayed")
     public MainPage isButtonLogOutAvailable() {
