@@ -17,18 +17,18 @@ public class LoginPage {
 
     private SelenideElement inputPassword = $(By.id("password"));
 
-    private SelenideElement buttonLogin = $(By.id("logIn"));
+    private static SelenideElement buttonLogin = $(By.id("logIn"));
 
     @Step("Open URL")
-    private LoginPage openLoginPage() {
+    public static LoginPage openLoginPage() {
         open("/");
         $(buttonLogin).shouldBe(Condition.visible);
         return page(LoginPage.class);
     }
 
     @Step("Enter username {0} and password {1}")
-    private LoginPage enterLoginAndPassword(String login, String password) {
-        $(inputUserName).sendKeys(login);
+    private LoginPage enterUserNameAndPassword(String userName, String password) {
+        $(inputUserName).sendKeys(userName);
         $(inputPassword).setValue(password);
         return this;
     }
@@ -40,8 +40,9 @@ public class LoginPage {
         return page(MainPage.class);
     }
 
-    public void loginWith(String login, String password) {
-        openLoginPage().enterLoginAndPassword(login, password).clickLogin();
-        //page(MainPage.class).isLogoutOptionAvailable();  - should we use such verification ?
+    public MainPage loginWith(String userName, String password) {
+        enterUserNameAndPassword(userName, password).clickLogin();
+        return page(MainPage.class);
+                //page(MainPage.class).isLogoutOptionAvailable();  - should we use such verification ?
     }
 }

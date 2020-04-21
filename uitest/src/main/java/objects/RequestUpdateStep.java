@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.page;
 
 public class RequestUpdateStep {
 
@@ -43,28 +42,17 @@ public class RequestUpdateStep {
 
     private SelenideElement buttonSaveAndProceed = $(byId("saveAndProceed"));
 
-
-/*    @Step("Verify that Send to Involved Party Step")
-    public  SelenideElement isRequestUpdateStepLoaded() {
-        return  $(stepName);
-    }*/
-
-    /*@Step("Verify that preRequest created")
-    public SelenideElement isPageLoaded() {
-        return $(buttonSaveAndProceed);
-    }*/
-
     @Step("Select Priority {0}")
     public RequestUpdateStep selectPriority(String priority) {
         $(selectPriority).$(withText(priority)).click();
-        return page(RequestUpdateStep.class);
+        return this;
     }
 
     @Step("Select LCC {0}")
     public RequestUpdateStep selectLcc(String lcc) {
         $(selectBoxHandledByLcc).click();
         $(withText(lcc)).click();
-        return page(RequestUpdateStep.class);
+        return this;
     }
 
     @Step("Select Handled By team {0}")
@@ -143,16 +131,10 @@ public class RequestUpdateStep {
         return $(stepName).getText();
     }
 
-
     @Step("Verify that step name is {0}")
     public SelenideElement checkThatStepNameIs(String stepNameValue) {
         return $(stepName).shouldHave(Condition.text(stepNameValue));
     }
-
-
-   /* public void isButtonSaveAndProceedDisplayed() {
-        $(buttonSaveAndProceed).shouldBe(Condition.visible);
-    }*/
 
 }
 
